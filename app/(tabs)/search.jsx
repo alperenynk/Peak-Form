@@ -11,6 +11,8 @@ import {
 } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { Feather } from "@expo/vector-icons";
+import { FontAwesome } from "@expo/vector-icons";
+import useFavouritesStore from "../../src/store/favouritesStore";
 
 const { width } = Dimensions.get("window");
 
@@ -31,7 +33,8 @@ export default function Search() {
   ];
 
   const [searchQuery, setSearchQuery] = useState("");
-  const [sortOrder, setSortOrder] = useState("asc"); // asc | desc
+  const [sortOrder, setSortOrder] = useState("asc");
+  const { toggleFavourite, isFavourite } = useFavouritesStore();
 
   const filteredGroups = muscleGroups
     .filter((item) =>
@@ -47,19 +50,35 @@ export default function Search() {
     setSearchQuery("");
   };
 
-  const renderItem = ({ item }) => (
-    <Pressable
-      style={({ pressed }) => [
-        styles.gridItem,
-        pressed && styles.gridItemPressed,
-      ]}
-    >
-      <Image source={item.image} style={styles.image} />
-      <View style={styles.titleOverlay}>
-        <Text style={styles.imageTitle}>{item.title}</Text>
-      </View>
-    </Pressable>
-  );
+  const renderItem = ({ item }) => {
+    const isFav = isFavourite(item.id);
+
+    return (
+      <Pressable
+        style={({ pressed }) => [
+          styles.gridItem,
+          pressed && styles.gridItemPressed,
+        ]}
+      >
+        <Image source={item.image} style={styles.image} />
+
+        <Pressable
+          style={styles.favouriteButton}
+          onPress={() => toggleFavourite(item)}
+        >
+          <FontAwesome
+            name={isFav ? "heart" : "heart-o"}
+            size={16}
+            color={isFav ? "#ff4d6a" : "#3a3a3a"}
+          />
+        </Pressable>
+
+        <View style={styles.titleOverlay}>
+          <Text style={styles.imageTitle}>{item.title}</Text>
+        </View>
+      </Pressable>
+    );
+  };
 
   return (
     <SafeAreaProvider>
@@ -67,7 +86,6 @@ export default function Search() {
         <View style={styles.headerContainer}>
           <Text style={styles.header}>E X E R C I S E S</Text>
 
-          {/* Search + Sort */}
           <View style={styles.searchContainer}>
             <View style={styles.searchWrapper}>
               <Feather
@@ -92,7 +110,6 @@ export default function Search() {
                 </Pressable>
               )}
 
-              {/* Sort Button */}
               <Pressable
                 onPress={() =>
                   setSortOrder((prev) => (prev === "asc" ? "desc" : "asc"))
@@ -189,13 +206,31 @@ const styles = StyleSheet.create({
     fontWeight: "600",
   },
 
+  columnWrapper: {
+    justifyContent: "space-between",
+  },
+
   flatListContent: {
     paddingHorizontal: 12,
     paddingBottom: 24,
   },
 
-  columnWrapper: {
-    justifyContent: "space-between",
+  emptyContainer: {
+    alignItems: "center",
+    marginTop: 100,
+  },
+
+  emptyText: {
+    color: "#bbb",
+    fontSize: 18,
+    marginTop: 16,
+    textAlign: "center",
+  },
+
+  emptySubText: {
+    color: "#777",
+    fontSize: 15,
+    marginTop: 8,
   },
 
   gridItem: {
@@ -219,6 +254,16 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
   },
 
+  favouriteButton: {
+    position: "absolute",
+    top: 12,
+    left: 12,
+    zIndex: 10,
+    padding: 6,
+    borderRadius: 20,
+    backgroundColor: "rgba(0,0,0,0.45)",
+  },
+
   titleOverlay: {
     position: "absolute",
     bottom: 0,
@@ -234,23 +279,5 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "600",
     letterSpacing: 0.5,
-  },
-
-  emptyContainer: {
-    alignItems: "center",
-    marginTop: 100,
-  },
-
-  emptyText: {
-    color: "#bbb",
-    fontSize: 18,
-    marginTop: 16,
-    textAlign: "center",
-  },
-
-  emptySubText: {
-    color: "#777",
-    fontSize: 15,
-    marginTop: 8,
   },
 });
