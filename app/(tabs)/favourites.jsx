@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Text,
   View,
@@ -8,9 +8,15 @@ import {
   Pressable,
   Dimensions,
 } from "react-native";
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import {
+  SafeAreaProvider,
+  SafeAreaView,
+  useSafeAreaInsets,
+} from "react-native-safe-area-context";
+
 import { Feather } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
+
 import useFavouritesStore from "../../src/store/favouritesStore";
 
 const { width } = Dimensions.get("window");
@@ -31,6 +37,7 @@ const muscleGroups = [
 ];
 
 export default function Favourites() {
+  const insets = useSafeAreaInsets();
   const { favourites, toggleFavourite } = useFavouritesStore();
   const [sortOrder] = useState("asc");
 
@@ -90,7 +97,10 @@ export default function Favourites() {
             keyExtractor={(item) => item.id}
             numColumns={2}
             columnWrapperStyle={styles.columnWrapper}
-            contentContainerStyle={styles.flatListContent}
+            contentContainerStyle={[
+              styles.flatListContent,
+              { paddingBottom: insets.bottom + 100 },
+            ]}
             showsVerticalScrollIndicator={false}
           />
         )}
@@ -145,7 +155,6 @@ const styles = StyleSheet.create({
 
   flatListContent: {
     paddingHorizontal: 12,
-    paddingBottom: 40,
   },
 
   gridItem: {

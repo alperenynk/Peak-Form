@@ -9,9 +9,15 @@ import {
   TextInput,
   Dimensions,
 } from "react-native";
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import {
+  SafeAreaProvider,
+  SafeAreaView,
+  useSafeAreaInsets,
+} from "react-native-safe-area-context";
+
 import { Feather } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
+
 import useFavouritesStore from "../../src/store/favouritesStore";
 
 const { width } = Dimensions.get("window");
@@ -32,6 +38,7 @@ export default function Search() {
     { id: "12", title: "Neck", image: require("../../assets/icon.png") },
   ];
 
+  const insets = useSafeAreaInsets();
   const [searchQuery, setSearchQuery] = useState("");
   const [sortOrder, setSortOrder] = useState("asc");
   const { toggleFavourite, isFavourite } = useFavouritesStore();
@@ -130,11 +137,14 @@ export default function Search() {
           keyExtractor={(item) => item.id}
           numColumns={2}
           columnWrapperStyle={styles.columnWrapper}
-          contentContainerStyle={styles.flatListContent}
+          contentContainerStyle={[
+            styles.flatListContent,
+            { paddingBottom: insets.bottom + 100 },
+          ]}
           showsVerticalScrollIndicator={false}
           ListEmptyComponent={
             <View style={styles.emptyContainer}>
-              <Feather name="search" size={48} color="#555" />
+              <Feather name="search" size={70} color="#555" />
               <Text style={styles.emptyText}>
                 No muscle group found for "{searchQuery}"
               </Text>
@@ -212,24 +222,27 @@ const styles = StyleSheet.create({
 
   flatListContent: {
     paddingHorizontal: 12,
-    paddingBottom: 24,
   },
 
   emptyContainer: {
+    flex: 1,
     alignItems: "center",
-    marginTop: 100,
+    justifyContent: "center",
+    paddingHorizontal: 40,
+    paddingVertical: 60,
+    minHeight: 525,
   },
 
   emptyText: {
     color: "#bbb",
-    fontSize: 18,
+    fontSize: 20,
     marginTop: 16,
     textAlign: "center",
   },
 
   emptySubText: {
     color: "#777",
-    fontSize: 15,
+    fontSize: 16,
     marginTop: 8,
   },
 
