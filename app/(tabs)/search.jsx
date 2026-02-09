@@ -19,24 +19,11 @@ import { Feather } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
 
 import useFavouritesStore from "../../src/store/favouritesStore";
+import { muscleGroups } from "../../src/data/muscleData";
 
 const { width } = Dimensions.get("window");
 
 export default function Search() {
-  const muscleGroups = [
-    { id: "1", title: "Biceps", image: require("../../assets/images/biceps.png") },
-    { id: "2", title: "Triceps", image: require("../../assets/images/triceps.png") },
-    { id: "3", title: "Chest", image: require("../../assets/images/chest.png") },
-    { id: "4", title: "Back", image: require("../../assets/images/back.png") },
-    { id: "5", title: "Quadriceps", image: require("../../assets/images/quadriceps.png") },
-    { id: "6", title: "Shoulders", image: require("../../assets/images/shoulder.png") },
-    { id: "7", title: "Abs", image: require("../../assets/images/abs.png") },
-    { id: "8", title: "Forearms", image: require("../../assets/images/forearm.png") },
-    { id: "9", title: "Calves", image: require("../../assets/images/calves.png") },
-    { id: "10", title: "Hamstrings", image: require("../../assets/images/hamstrings.png") },
-    { id: "11", title: "Glutes", image: require("../../assets/images/glutes.png") },
-    { id: "12", title: "Neck", image: require("../../assets/images/neck.png") },
-  ];
 
   const insets = useSafeAreaInsets();
   const [searchQuery, setSearchQuery] = useState("");
