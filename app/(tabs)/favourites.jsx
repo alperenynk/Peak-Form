@@ -13,6 +13,7 @@ import {
   SafeAreaView,
   useSafeAreaInsets,
 } from "react-native-safe-area-context";
+import { useRouter } from 'expo-router';
 
 import { Feather } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
@@ -26,6 +27,7 @@ export default function Favourites() {
   const insets = useSafeAreaInsets();
   const { favourites, toggleFavourite } = useFavouritesStore();
   const [sortOrder] = useState("asc");
+  const router = useRouter();
 
   const favouriteItems = favourites
     .map((fav) => {
@@ -44,12 +46,16 @@ export default function Favourites() {
         styles.gridItem,
         pressed && styles.gridItemPressed,
       ]}
+      onPress={() => router.push(`/muscle/${item.id}`)}
     >
       <Image source={item.image} style={styles.image} />
 
       <Pressable
         style={styles.favouriteButton}
-        onPress={() => toggleFavourite(item)}
+        onPress={(e) => {
+          e.stopPropagation();
+          toggleFavourite(item);
+        }}
       >
         <FontAwesome name="heart" size={16} color="#ff4d6a" />
       </Pressable>

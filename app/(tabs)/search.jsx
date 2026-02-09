@@ -14,6 +14,7 @@ import {
   SafeAreaView,
   useSafeAreaInsets,
 } from "react-native-safe-area-context";
+import { useRouter } from 'expo-router';
 
 import { Feather } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
@@ -29,6 +30,7 @@ export default function Search() {
   const [searchQuery, setSearchQuery] = useState("");
   const [sortOrder, setSortOrder] = useState("asc");
   const { toggleFavourite, isFavourite } = useFavouritesStore();
+  const router = useRouter();
 
   const filteredGroups = muscleGroups
     .filter((item) =>
@@ -53,12 +55,16 @@ export default function Search() {
           styles.gridItem,
           pressed && styles.gridItemPressed,
         ]}
+        onPress={() => router.push(`/muscle/${item.id}`)}
       >
         <Image source={item.image} style={styles.image} />
 
         <Pressable
           style={styles.favouriteButton}
-          onPress={() => toggleFavourite(item)}
+          onPress={(e) => {
+          e.stopPropagation();
+          toggleFavourite(item);
+          }}
         >
           <FontAwesome
             name={isFav ? "heart" : "heart-o"}
