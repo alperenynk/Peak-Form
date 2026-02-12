@@ -13,7 +13,7 @@ import {
   SafeAreaView,
   useSafeAreaInsets,
 } from "react-native-safe-area-context";
-import { useRouter } from 'expo-router';
+import { useRouter } from "expo-router";
 
 import { Feather } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
@@ -34,11 +34,7 @@ export default function Favourites() {
       const fullItem = muscleGroups.find((item) => item.id === fav.id);
       return fullItem || fav;
     })
-    .sort((a, b) =>
-      sortOrder === "asc"
-        ? a.title.localeCompare(b.title)
-        : b.title.localeCompare(a.title),
-    );
+    .sort((a, b) => a.title.localeCompare(b.title));
 
   const renderItem = ({ item }) => (
     <Pressable
@@ -75,7 +71,7 @@ export default function Favourites() {
 
         {favouriteItems.length === 0 ? (
           <View style={styles.emptyContainer}>
-            <Feather name="heart" size={70} color="#555" />
+            <Feather name="heart" size={70} color="#6b7280" />
             <Text style={styles.emptyText}>No favourites yet</Text>
             <Text style={styles.emptySubText}>
               Tap the heart icon on muscle groups in the search screen to add
@@ -104,20 +100,21 @@ export default function Favourites() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#25292e",
+    backgroundColor: "#0f121a",
   },
 
   headerContainer: {
-    paddingHorizontal: 12,
+    paddingHorizontal: 16,
     paddingTop: 40,
-    paddingBottom: 16,
+    paddingBottom: 20,
   },
 
   header: {
-    color: "#fff",
+    color: "#f8f9fc",
     fontSize: 32,
-    fontWeight: "bold",
+    fontWeight: "800",
     textAlign: "center",
+    letterSpacing: -0.5,
   },
 
   emptyContainer: {
@@ -128,17 +125,18 @@ const styles = StyleSheet.create({
   },
 
   emptyText: {
-    color: "#bbb",
+    color: "#a0a8b8",
     fontSize: 20,
     marginTop: 24,
     textAlign: "center",
   },
 
   emptySubText: {
-    color: "#777",
+    color: "#6b7280",
     fontSize: 16,
     marginTop: 12,
     textAlign: "center",
+    lineHeight: 22,
   },
 
   columnWrapper: {
@@ -146,22 +144,23 @@ const styles = StyleSheet.create({
   },
 
   flatListContent: {
-    paddingHorizontal: 12,
+    paddingHorizontal: 16,
   },
 
   gridItem: {
-    width: (width - 36) / 2,
+    width: (width - 48) / 2,
     aspectRatio: 1,
-    marginBottom: 12,
-    borderRadius: 15,
+    marginBottom: 16,
+    borderRadius: 16,
     overflow: "hidden",
-    backgroundColor: "#333",
-    elevation: 4,
+    backgroundColor: "#171b22",
+    borderWidth: 1,
+    borderColor: "#2a3140",
   },
 
   gridItemPressed: {
-    opacity: 0.7,
-    transform: [{ scale: 0.96 }],
+    opacity: 0.85,
+    transform: [{ scale: 0.97 }],
   },
 
   image: {
@@ -177,7 +176,7 @@ const styles = StyleSheet.create({
     zIndex: 10,
     padding: 8,
     borderRadius: 20,
-    backgroundColor: "rgba(0,0,0,0.45)",
+    backgroundColor: "rgba(23, 27, 34, 0.8)",
   },
 
   titleOverlay: {
@@ -185,15 +184,15 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    backgroundColor: "rgba(0,0,0,0.6)",
-    paddingVertical: 8,
+    backgroundColor: "rgba(15, 18, 26, 0.8)",
+    paddingVertical: 10,
     alignItems: "center",
   },
 
   imageTitle: {
-    color: "#fff",
-    fontSize: 14,
-    fontWeight: "600",
-    letterSpacing: 0.5,
+    color: "#f8f9fc",
+    fontSize: 15,
+    fontWeight: "700",
+    letterSpacing: 0.3,
   },
 });

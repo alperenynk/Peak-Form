@@ -20,17 +20,20 @@ export default function Layout() {
             height: 70,
             marginHorizontal: 15,
             borderRadius: 30,
-            backgroundColor: "#3a3a3a",
-            borderTopWidth: 0,
-            elevation: 10,
+            backgroundColor: "#171b22",
+            borderWidth: 1,
+            borderColor: "#2a3140",
+            elevation: 12,
             shadowColor: "#000",
-            shadowOffset: { width: 0, height: 10 },
-            shadowOpacity: 0.4,
-            shadowRadius: 10,
+            shadowOffset: { width: 0, height: 12 },
+            shadowOpacity: 0.5,
+            shadowRadius: 16,
           },
           tabBarItemStyle: {
-            paddingTop: 14,
+            paddingTop: 12,
           },
+          tabBarActiveTintColor: "#6366f1",
+          tabBarInactiveTintColor: "#6b7280",
         }}
       >
         <Tabs.Screen
@@ -40,7 +43,7 @@ export default function Layout() {
               <FontAwesome
                 name="home"
                 size={28}
-                color={focused ? "#ffc107" : "#aaa"}
+                color={focused ? "#6366f1" : "#6b7280"}
               />
             ),
           }}
@@ -53,7 +56,7 @@ export default function Layout() {
               <FontAwesome
                 name="search"
                 size={28}
-                color={focused ? "#ffc107" : "#aaa"}
+                color={focused ? "#6366f1" : "#6b7280"}
               />
             ),
           }}
@@ -66,7 +69,7 @@ export default function Layout() {
               <FontAwesome
                 name="heart"
                 size={28}
-                color={focused ? "#ffc107" : "#aaa"}
+                color={focused ? "#ff4d6a" : "#6b7280"}
               />
             ),
           }}

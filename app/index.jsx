@@ -41,11 +41,11 @@ const styles = StyleSheet.create({
 
   overlay: {
     flex: 1,
-    backgroundColor: "rgba(37, 41, 46, 0.65)",
+    backgroundColor: "rgba(15, 18, 26, 0.78)",
     justifyContent: "flex-end",
     alignItems: "center",
     paddingHorizontal: 32,
-    paddingBottom: 100,
+    paddingBottom: 120,
   },
 
   content: {
@@ -54,30 +54,31 @@ const styles = StyleSheet.create({
   },
 
   startButton: {
-    backgroundColor: "#ffc107",
+    backgroundColor: "#6366f1",
     paddingVertical: 18,
-    paddingHorizontal: 48,
+    paddingHorizontal: 60,
     borderRadius: 30,
-    borderWidth: 3,
-    borderColor: "#3a3a3a",
     width: "100%",
     alignItems: "center",
-    shadowColor: "#ffc107",
-    shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.3,
-    shadowRadius: 10,
-    elevation: 10,
+    shadowColor: "#6366f1",
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.35,
+    shadowRadius: 12,
+    elevation: 12,
+    borderWidth: 1,
+    borderColor: "#818cf8",
   },
 
   startButtonPressed: {
-    transform: [{ scale: 0.96 }],
+    transform: [{ scale: 0.97 }],
     opacity: 0.92,
   },
 
   buttonText: {
-    color: "#000000",
+    color: "#f8f9fc",
     fontSize: 20,
     fontWeight: "700",
     textAlign: "center",
+    letterSpacing: 0.5,
   },
 });

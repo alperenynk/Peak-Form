@@ -92,7 +92,7 @@ export default function MuscleDetail() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: "#25292e",
+    backgroundColor: "#0f121a",
   },
 
   header: {
@@ -100,19 +100,19 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     paddingHorizontal: 20,
-    paddingVertical: 18,
+    paddingVertical: 16,
   },
 
   headerTitle: {
-    color: "white",
+    color: "#f8f9fc",
     fontSize: 22,
-    fontWeight: "600",
-    letterSpacing: 0.3,
+    fontWeight: "700",
+    letterSpacing: 0.2,
   },
 
   iconButton: {
     padding: 8,
-    borderRadius: 8,
+    borderRadius: 12,
   },
 
   listContent: {
@@ -126,7 +126,9 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     borderRadius: 16,
     overflow: "hidden",
-    backgroundColor: "#1c1f26",
+    backgroundColor: "#171b22",
+    borderWidth: 1,
+    borderColor: "#2a3140",
   },
 
   leftColumn: {
@@ -143,18 +145,18 @@ const styles = StyleSheet.create({
   },
 
   noContent: {
-    marginTop: 120,
+    marginTop: 140,
     alignItems: "center",
   },
 
   noContentText: {
-    color: "#666",
+    color: "#6b7280",
     fontSize: 15,
     marginTop: 12,
   },
 
   errorText: {
-    color: "white",
+    color: "#f8f9fc",
     fontSize: 18,
     textAlign: "center",
     marginTop: 100,

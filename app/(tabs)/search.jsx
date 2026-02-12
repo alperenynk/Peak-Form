@@ -153,59 +153,60 @@ export default function Search() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#25292e",
+    backgroundColor: "#0f121a",
   },
 
   headerContainer: {
-    paddingHorizontal: 12,
+    paddingHorizontal: 16,
     paddingTop: 12,
   },
 
   header: {
-    color: "#fff",
+    color: "#f8f9fc",
     fontSize: 32,
-    fontWeight: "bold",
+    fontWeight: "800",
     textAlign: "center",
-    marginBottom: 16,
+    marginBottom: 20,
+    letterSpacing: -0.5,
   },
 
   searchContainer: {
-    marginBottom: 16,
+    marginBottom: 20,
   },
 
   searchWrapper: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#333",
-    borderRadius: 12,
+    backgroundColor: "#171b22",
+    borderRadius: 16,
     borderWidth: 1,
-    borderColor: "#444",
+    borderColor: "#2a3140",
   },
 
   searchIcon: {
-    marginLeft: 14,
+    marginLeft: 16,
   },
 
   searchInput: {
     flex: 1,
-    color: "#fff",
-    paddingVertical: 12,
+    color: "#f8f9fc",
+    paddingVertical: 14,
     paddingHorizontal: 8,
     fontSize: 16,
   },
 
   clearButton: {
-    paddingHorizontal: 8,
+    paddingHorizontal: 12,
   },
 
   sortButton: {
-    paddingHorizontal: 12,
-    paddingVertical: 10,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
   },
 
   sortText: {
-    color: "#aaa",
-    fontSize: 12,
+    color: "#a0a8b8",
+    fontSize: 13,
     fontWeight: "600",
   },
 
@@ -214,7 +215,7 @@ const styles = StyleSheet.create({
   },
 
   flatListContent: {
-    paddingHorizontal: 12,
+    paddingHorizontal: 16,
   },
 
   emptyContainer: {
@@ -222,36 +223,37 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     paddingHorizontal: 40,
-    paddingVertical: 60,
-    minHeight: 525,
+    paddingVertical: 80,
+    minHeight: 500,
   },
 
   emptyText: {
-    color: "#bbb",
+    color: "#a0a8b8",
     fontSize: 20,
-    marginTop: 16,
+    marginTop: 20,
     textAlign: "center",
   },
 
   emptySubText: {
-    color: "#777",
+    color: "#6b7280",
     fontSize: 16,
     marginTop: 8,
   },
 
   gridItem: {
-    width: (width - 36) / 2,
+    width: (width - 48) / 2,
     aspectRatio: 1,
-    marginBottom: 12,
-    borderRadius: 15,
+    marginBottom: 16,
+    borderRadius: 16,
     overflow: "hidden",
-    backgroundColor: "#333",
-    elevation: 4,
+    backgroundColor: "#171b22",
+    borderWidth: 1,
+    borderColor: "#2a3140",
   },
 
   gridItemPressed: {
-    opacity: 0.7,
-    transform: [{ scale: 0.96 }],
+    opacity: 0.85,
+    transform: [{ scale: 0.97 }],
   },
 
   image: {
@@ -265,9 +267,9 @@ const styles = StyleSheet.create({
     top: 12,
     right: 12,
     zIndex: 10,
-    padding: 6,
+    padding: 8,
     borderRadius: 20,
-    backgroundColor: "rgba(0,0,0,0.45)",
+    backgroundColor: "rgba(23, 27, 34, 0.75)",
   },
 
   titleOverlay: {
@@ -275,15 +277,15 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    backgroundColor: "rgba(0,0,0,0.6)",
-    paddingVertical: 8,
+    backgroundColor: "rgba(15, 18, 26, 0.75)",
+    paddingVertical: 10,
     alignItems: "center",
   },
 
   imageTitle: {
-    color: "#fff",
-    fontSize: 14,
-    fontWeight: "600",
-    letterSpacing: 0.5,
+    color: "#f8f9fc",
+    fontSize: 15,
+    fontWeight: "700",
+    letterSpacing: 0.3,
   },
 });

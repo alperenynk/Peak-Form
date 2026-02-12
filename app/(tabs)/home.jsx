@@ -34,9 +34,9 @@ export default function Home() {
               onPress={() => router.push("/search")}
             >
               <View
-                style={[styles.iconWrapper, { backgroundColor: "#ffc10733" }]}
+                style={[styles.iconWrapper, { backgroundColor: "#6366f133" }]}
               >
-                <Feather name="search" size={32} color="#ffc107" />
+                <Feather name="search" size={32} color="#6366f1" />
               </View>
               <View style={styles.cardContent}>
                 <Text style={styles.cardTitle}>Find Muscle Groups</Text>
@@ -76,7 +76,7 @@ export default function Home() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: "#25292e",
+    backgroundColor: "#0f121a",
   },
 
   container: {
@@ -87,56 +87,53 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    color: "#ffffff",
-    fontSize: 40,
-    fontWeight: "bold",
+    color: "#f8f9fc",
+    fontSize: 48,
+    fontWeight: "800",
     marginBottom: 8,
+    letterSpacing: -1,
   },
 
   subtitle: {
-    color: "#bbbbbb",
+    color: "#a0a8b8",
     fontSize: 18,
     textAlign: "center",
-    marginBottom: 48,
-  },
-
-  image: {
-    flex: 1,
-    justifyContent: "center",
+    marginBottom: 60,
+    lineHeight: 26,
   },
 
   buttonContainer: {
     width: "100%",
-    gap: 16,
+    gap: 20,
   },
 
   card: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#2d3238",
-    padding: 20,
-    borderRadius: 20,
+    backgroundColor: "#171b22",
+    padding: 24,
+    borderRadius: 24,
     borderWidth: 1,
-    borderColor: "#444",
+    borderColor: "#2a3140",
     shadowColor: "#000",
-    shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.25,
-    shadowRadius: 10,
-    elevation: 8,
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.35,
+    shadowRadius: 16,
+    elevation: 10,
   },
 
   cardPressed: {
-    transform: [{ scale: 0.97 }],
+    transform: [{ scale: 0.98 }],
     opacity: 0.92,
   },
 
   iconWrapper: {
-    width: 64,
-    height: 64,
-    borderRadius: 32,
+    width: 72,
+    height: 72,
+    borderRadius: 36,
     justifyContent: "center",
     alignItems: "center",
-    marginRight: 20,
+    marginRight: 24,
   },
 
   cardContent: {
@@ -144,15 +141,15 @@ const styles = StyleSheet.create({
   },
 
   cardTitle: {
-    color: "#ffffff",
-    fontSize: 20,
+    color: "#f8f9fc",
+    fontSize: 22,
     fontWeight: "700",
-    marginBottom: 4,
+    marginBottom: 6,
   },
 
   cardSubtitle: {
-    color: "#bbbbbb",
+    color: "#a0a8b8",
     fontSize: 15,
-    lineHeight: 20,
+    lineHeight: 22,
   },
 });
